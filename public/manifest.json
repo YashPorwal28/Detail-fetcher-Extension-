@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "ObserveNow Extension",
+  "version": "1.0",
+    "permissions": ["scripting", "activeTab"],
+  "action": {
+    "default_popup": "index.html"
+  },
+   "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ]
+}
