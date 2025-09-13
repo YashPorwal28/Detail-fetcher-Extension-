@@ -86,7 +86,8 @@ function App() {
         });
         setResult("Person data fetched successfully!");
       } else {
-        setResult("Person data not found");
+        setPersonData(null);
+        setResult("No data found");
       }
 
     } catch (error) {
@@ -117,7 +118,7 @@ function App() {
         )}
       </div>
 
-      {personData && (
+      {personData ? (
         <div style={{ 
           border: '1px solid #ccc', 
           padding: '15px', 
@@ -129,6 +130,17 @@ function App() {
           <p><strong>Email:</strong> {personData.email}</p>
           <p><strong>Organization:</strong> {personData.organization}</p>
           <p><strong>Designation:</strong> {personData.designation}</p>
+        </div>
+      ) : result === "No data found" && (
+        <div style={{ 
+          border: '1px solid #ff6b6b', 
+          padding: '15px', 
+          borderRadius: '5px',
+          backgroundColor: '#ffe0e0',
+          color: '#d63031'
+        }}>
+          <h3>No Data Found</h3>
+          <p>Unable to find person information for this profile.</p>
         </div>
       )}
     </div>
